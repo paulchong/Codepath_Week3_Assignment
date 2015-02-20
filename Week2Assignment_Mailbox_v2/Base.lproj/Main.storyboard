@@ -12,13 +12,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="s3F-Wp-EOe">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="menu" id="hJM-Sj-nYM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="s3F-Wp-EOe" userLabel="Level0View">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="1472"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="nav" id="M4y-e9-Sq4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Dzw-9a-IUR" appends="YES" id="6u0-vM-R7F"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="help_label" id="HRV-bR-4ES">
                                         <rect key="frame" x="0.0" y="65" width="320" height="37"/>
@@ -81,6 +89,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="Level0View" destination="s3F-Wp-EOe" id="d7Y-72-bj4"/>
                         <outlet property="Level1View" destination="cYh-O0-j9f" id="CZo-81-6rv"/>
                         <outlet property="Level2View" destination="Dpq-OE-lCj" id="k1H-S3-G9J"/>
                         <outlet property="archiveIconImage" destination="cg3-G7-HuD" id="WqG-Ji-HFI"/>
@@ -100,6 +109,11 @@
                         <action selector="rescheduleTapGesture:" destination="vXZ-lx-hvc" id="rQo-36-mLY"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Dzw-9a-IUR" userLabel="Nav Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="navPanGesture:" destination="vXZ-lx-hvc" id="dnb-AV-m8b"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="368"/>
         </scene>
@@ -110,6 +124,7 @@
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_nav_icon" width="25" height="20"/>
+        <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
         <image name="reschedule" width="320" height="568"/>
