@@ -28,10 +28,22 @@
                                         <rect key="frame" x="0.0" y="102" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" id="cYh-O0-j9f">
+                                    <view contentMode="scaleToFill" id="cYh-O0-j9f" userLabel="Level1View">
                                         <rect key="frame" x="0.0" y="144" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="cg3-G7-HuD">
+                                                <rect key="frame" x="37" y="31" width="25" height="22"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="Pfg-fR-kxZ">
+                                                <rect key="frame" x="240" y="31" width="25" height="22"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_nav_icon" id="ip6-0H-h31">
+                                                <rect key="frame" x="260" y="31" width="25" height="20"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" id="Dpq-OE-lCj" userLabel="Level2View">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,6 +66,10 @@
                                         <rect key="frame" x="0.0" y="230" width="320" height="1202"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="reschedule" id="v4Y-Co-0Nt">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -61,7 +77,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="Level1View" destination="cYh-O0-j9f" id="CZo-81-6rv"/>
                         <outlet property="Level2View" destination="Dpq-OE-lCj" id="k1H-S3-G9J"/>
+                        <outlet property="archiveIconImage" destination="cg3-G7-HuD" id="WqG-Ji-HFI"/>
+                        <outlet property="deleteIconImage" destination="Pfg-fR-kxZ" id="bHi-xz-TJD"/>
+                        <outlet property="laterIconImage" destination="ip6-0H-h31" id="UfZ-Si-7Kd"/>
+                        <outlet property="rescheduleImage" destination="v4Y-Co-0Nt" id="fGK-Mv-9rL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -71,14 +92,18 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="162.66666666666666" y="368.25333333333333"/>
+            <point key="canvasLocation" x="162" y="368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
+        <image name="delete_icon" width="25" height="25"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
+        <image name="later_nav_icon" width="25" height="20"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
+        <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
