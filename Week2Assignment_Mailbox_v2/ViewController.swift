@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var Level0View: UIView!
     @IBOutlet weak var Level1View: UIView!
     @IBOutlet weak var Level2View: UIView!
     @IBOutlet weak var rescheduleImage: UIImageView!
@@ -23,9 +24,16 @@ class ViewController: UIViewController {
     var finalLevel2PositionX: CGFloat!
     var messageOriginalX: CGFloat!
     
+    var navViewStartingX: CGFloat!
+    var navViewStartingPanBegan: CGFloat!
+    var finalNavViewPositionX: CGFloat!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         level2StartingX = Level2View.frame.origin.x
+        navViewStartingX = Level0View.frame.origin.x
         rescheduleImage.hidden = true
     }
 
@@ -79,6 +87,11 @@ class ViewController: UIViewController {
                 
             default:
                 Level1View.backgroundColor = UIColor.grayColor()
+                laterIconImage.hidden = false
+                archiveIconImage.hidden = false
+                archiveIconImage.center.x = archiveX
+                laterIconImage.center.x = laterX
+                deleteIconImage.hidden = false
             }
             
             Level2View.frame.origin.x = finalLevel2PositionX
@@ -96,17 +109,45 @@ class ViewController: UIViewController {
             UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 30, options: nil, animations: { () -> Void in
                 self.Level2View.frame.origin.x = self.finalLevel2PositionX
                 }, completion: nil)
-            
         }
-        
     }
 
     @IBAction func rescheduleTapGesture(sender: UITapGestureRecognizer) {
         rescheduleImage.hidden = true
         Level2View.center.x = level2StartingX + 160
         println(Level2View.center.x)
-
     }
     
+    @IBAction func navPanGesture(sender: UIPanGestureRecognizer) {
+        var translation = sender.translationInView(view)
+        var location = sender.locationInView(view)
+        var velocity = sender.velocityInView(view)
+        
+        println("Velocity: \(velocity)")
+        println("Location: \(location)")
+        println("Translation: \(translation)")
+        
+        if (sender.state == UIGestureRecognizerState.Began) {
+            navViewStartingPanBegan = Level0View.frame.origin.x
+        } else if (sender.state == UIGestureRecognizerState.Changed) {
+            finalNavViewPositionX = navViewStartingPanBegan + translation.x
+            
+            if (finalNavViewPositionX < navViewStartingX) {
+                finalNavViewPositionX = navViewStartingPanBegan + translation.x
+            }
+            
+            Level0View.frame.origin.x = finalNavViewPositionX
+            
+        } else if (sender.state == UIGestureRecognizerState.Ended) {
+            if (translation.x > 140) {
+                finalNavViewPositionX = 290
+            } else {
+                finalNavViewPositionX = navViewStartingX
+            }
+            UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 30, options: nil, animations: { () -> Void in
+                self.Level0View.frame.origin.x = self.finalNavViewPositionX
+                }, completion: nil)
+        }
+    }
 }
 
