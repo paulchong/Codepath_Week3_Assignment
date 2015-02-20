@@ -87,6 +87,11 @@ class ViewController: UIViewController {
                 
             default:
                 Level1View.backgroundColor = UIColor.grayColor()
+                laterIconImage.hidden = false
+                archiveIconImage.hidden = false
+                archiveIconImage.center.x = archiveX
+                laterIconImage.center.x = laterX
+                deleteIconImage.hidden = false
             }
             
             Level2View.frame.origin.x = finalLevel2PositionX
