@@ -69,6 +69,10 @@
                                     <imageView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="reschedule" id="v4Y-Co-0Nt">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qRG-mP-bB8" appends="YES" id="Lis-MY-W4q"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +95,11 @@
                         <action selector="didPanLevel2:" destination="vXZ-lx-hvc" id="Uu2-Vx-NlC"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="qRG-mP-bB8">
+                    <connections>
+                        <action selector="rescheduleTapGesture:" destination="vXZ-lx-hvc" id="rQo-36-mLY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="368"/>
         </scene>

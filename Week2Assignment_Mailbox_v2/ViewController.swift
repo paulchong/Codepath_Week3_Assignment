@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var level2StartingX: CGFloat!
     var level2StartingXPanBegan: CGFloat!
     var finalLevel2PositionX: CGFloat!
+    var messageOriginalX: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +42,6 @@ class ViewController: UIViewController {
         var archiveX = archiveIconImage.center.x
         var laterX = laterIconImage.center.x
         deleteIconImage.hidden = true
-        
-        println(archiveX)
 
         println("Velocity: \(velocity)")
         println("Location: \(location)")
@@ -96,12 +95,18 @@ class ViewController: UIViewController {
             }
             UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 30, options: nil, animations: { () -> Void in
                 self.Level2View.frame.origin.x = self.finalLevel2PositionX
-//                self.trayArrow.transform = CGAffineTransformMakeRotation(self.trayRotation)
                 }, completion: nil)
             
         }
         
     }
 
+    @IBAction func rescheduleTapGesture(sender: UITapGestureRecognizer) {
+        rescheduleImage.hidden = true
+        Level2View.center.x = level2StartingX + 160
+        println(Level2View.center.x)
+
+    }
+    
 }
 
